@@ -46,7 +46,8 @@ public class ReservationServiceImpl implements ReservartionService {
     public double saveReservation
     (Long courtId,
      String customerName, String customerSurname, String telephoneNumber,
-     String startTime, String endTime, boolean doubles) throws InvalidReservationDetailsException, InvalidCustomerDetailsException {
+     String startTime, String endTime, boolean doubles)
+            throws InvalidReservationDetailsException, InvalidCustomerDetailsException {
 
         Timestamp stampStart = Timestamp.valueOf(startTime);
         Timestamp stampEnd = Timestamp.valueOf(endTime);
@@ -56,8 +57,10 @@ public class ReservationServiceImpl implements ReservartionService {
             throw new InvalidReservationDetailsException("Court id does not exist");
         }
 
-        CheckReservationInputs.checkReservation(court, stampStart, stampEnd, reservationRepository);
-        CheckReservationInputs.checkCustomer(customerName, customerSurname, telephoneNumber, customerRepository);
+        CheckReservationInputs.checkReservation(court, stampStart,
+                stampEnd, reservationRepository);
+        CheckReservationInputs.checkCustomer(customerName, customerSurname,
+                telephoneNumber, customerRepository);
         Reservation reservation = Reservation
                 .builder()
                 .customerName(customerName)

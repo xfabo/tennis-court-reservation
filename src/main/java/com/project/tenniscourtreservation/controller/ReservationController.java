@@ -30,9 +30,9 @@ public class ReservationController {
      */
     @PostMapping("/reservations")
     public double saveReservation
-            (Long courtId,
-             String customerName, String customerSurname, String telephoneNumber,
-             String startTime, String endTime, boolean doubles)
+    (Long courtId,
+     String customerName, String customerSurname, String telephoneNumber,
+     String startTime, String endTime, boolean doubles)
             throws InvalidReservationDetailsException, InvalidCustomerDetailsException {
         return reservartionService.saveReservation(courtId, customerName.strip(),
                 customerSurname.strip(),
@@ -43,6 +43,7 @@ public class ReservationController {
     /**
      * This is a GetMapping method to find all reservations with telephone number given as parameter.
      * Number is parsed as an url format for example "http://localhost:8082/reservations/number/+421902462".
+     *
      * @param telephoneNumber given telephone number to find reservations.
      * @return List of reservations created with this telephone number.
      */
@@ -54,6 +55,7 @@ public class ReservationController {
     /**
      * This is a GetMapping method to find all reservations with specific court id.
      * Court id is parsed as an url format for example "http://localhost:8082/reservations/1"
+     *
      * @param courtId given court id to find reservations.
      * @return List of reservations created with this court id.
      */

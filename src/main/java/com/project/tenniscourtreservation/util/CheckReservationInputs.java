@@ -21,9 +21,9 @@ public class CheckReservationInputs {
      * If not it throws an exception.
      * Then it checks if the customers telephone number starts with + and then contains only digits.
      * After all these checks it tries to find customer by telephone number.
-     * If it is succeeds this method checks if the name and surname given matches the one in the database.
-     * If it does not match then the method throws an exception.
-     * if there is no customer with this telephone number, then the method adds the customer to the database.
+     * If it succeeds, this method checks if the given name and surname matches the one in the database.
+     * If it does not match, then the method throws an exception.
+     * if there is no customer with this telephone number,then the method adds the customer to the database.
      *
      * @param customerName       customers name.
      * @param customerSurname    customers surname.
@@ -32,7 +32,8 @@ public class CheckReservationInputs {
      * @throws InvalidCustomerDetailsException thrown when  some detail is invalid.
      */
     public static void checkCustomer(String customerName, String customerSurname,
-                                     String phoneNumber, CustomerRepository customerRepository) throws InvalidCustomerDetailsException {
+                                     String phoneNumber, CustomerRepository customerRepository)
+            throws InvalidCustomerDetailsException {
 
         if (!customerName.matches("[a-zA-Z].[a-zA-Z]*") ||
                 !customerSurname.matches("[a-zA-Z].[a-zA-Z]*")) {
@@ -54,14 +55,15 @@ public class CheckReservationInputs {
         if (!customer.getCustomerName().equals(customerName)
                 || !customer.getCustomerSurname().equals(customerSurname)) {
             throw new InvalidCustomerDetailsException
-                    ("Name or surname connected to this number does not match with inputted name or surname");
+                    ("Name or surname connected to this number " +
+                            "does not match with inputted name or surname");
         }
     }
 
     /**
-     * This method checks the reservation times
-     * if the start time is not after the end time or
-     * if there can be a reservation created at this time.
+     * This method checks if the reservation start time is not after the reservation end time or
+     * if given start time and end time does not interrupt with an already existing reservation period.
+     * If the given times are not valid it throws an exception.
      *
      * @param court                 court object.
      * @param startTime             start of the reservation.
@@ -82,11 +84,13 @@ public class CheckReservationInputs {
                 reservationRepository
                         .existsByStartTimeIsBeforeAndEndTimeIsAfterAndCourtIdEquals
                                 (endTime, endTime, court.getCourtId())) {
-            throw new InvalidReservationDetailsException("There is already a reservation at this time.");
+            throw new InvalidReservationDetailsException
+                    ("There is already a reservation at this time.");
         }
         if (reservationRepository.existsByStartTimeAndCourtId(startTime, court.getCourtId()) ||
                 reservationRepository.existsByEndTimeAndCourtId(endTime, court.getCourtId())) {
-            throw new InvalidReservationDetailsException("There is already a reservation at this time.");
+            throw new InvalidReservationDetailsException
+                    ("There is already a reservation at this time.");
         }
     }
 }

@@ -14,7 +14,7 @@ public class PriceCounter {
 
     /**
      * Method to calculate the price of the reservation by time, surface and type of game.
-     * First it calculates the difference between end time and start time and then divide it by 60000
+     * First it calculates the difference between end time and start time and then divide it by 60000,
      * because the method returns milliseconds so to get minutes it has to be divided by 60000.
      * Then it finds the surface price in enum CourtSurfacePrices and multiply it by its price.
      * If the game is not doubles it multiply the price by 1.5.

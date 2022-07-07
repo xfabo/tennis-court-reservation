@@ -1,8 +1,8 @@
 package com.project.tenniscourtreservation.util;
 
 import com.project.tenniscourtreservation.entity.Court;
-import com.project.tenniscourtreservation.enums.CourtSurfacePrices;
 import com.project.tenniscourtreservation.entity.Reservation;
+import com.project.tenniscourtreservation.enums.CourtSurfacePrices;
 
 
 /**
@@ -18,8 +18,9 @@ public class PriceCounter {
      * because the method returns milliseconds so to get minutes it has to be divided by 60000.
      * Then it finds the surface price in enum CourtSurfacePrices and multiply it by its price.
      * If the game is not doubles it multiply the price by 1.5.
+     *
      * @param reservation reservation object.
-     * @param court court object.
+     * @param court       court object.
      * @return price of the reservation.
      */
     public static double countPrice(Reservation reservation, Court court) {

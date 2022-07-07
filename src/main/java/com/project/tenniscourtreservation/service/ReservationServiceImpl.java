@@ -41,13 +41,12 @@ public class ReservationServiceImpl implements ReservartionService {
      * This method check all the inputs given from user and determines whether they are correct or incorrect.
      * If they are correct this method save the reservation and returns price of the reservation.
      * Otherwise, it fails with exception.
-     *
      */
     @Override
     public double saveReservation
-            (Long courtId,
-             String customerName, String customerSurname, String telephoneNumber,
-             String startTime, String endTime, boolean doubles) throws InvalidReservationDetailsException, InvalidCustomerDetailsException {
+    (Long courtId,
+     String customerName, String customerSurname, String telephoneNumber,
+     String startTime, String endTime, boolean doubles) throws InvalidReservationDetailsException, InvalidCustomerDetailsException {
 
         Timestamp stampStart = Timestamp.valueOf(startTime);
         Timestamp stampEnd = Timestamp.valueOf(endTime);

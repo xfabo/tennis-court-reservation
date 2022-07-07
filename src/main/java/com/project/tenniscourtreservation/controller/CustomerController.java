@@ -27,6 +27,7 @@ public class CustomerController {
 
     /**
      * This is a PostMapping method to save customer in the database.
+     *
      * @param customer - customer object created from API parameters.
      * @return Customer object.
      */
@@ -37,6 +38,7 @@ public class CustomerController {
 
     /**
      * This is a GetMapping method to get all customers in the database.
+     *
      * @return List of customers.
      */
     @GetMapping("/customers")

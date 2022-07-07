@@ -17,21 +17,22 @@ import java.sql.Timestamp;
 public class CheckReservationInputs {
     /**
      * This method check whether given customer name and customer surname
-     * matches the right format which is only containing alphabetic characters.
+     * matches the right format, which is only containing alphabetic characters.
      * If not it throws an exception.
-     * Then it checks the customers telephone number if it starts with + and then contains only digits
-     * and last it checks if there is already a reservation with this telephone number in database.
-     * If there is this method checks if the name and surname given matches the one in the database.
-     * If it does not match the method throw an exception.
-     * if there is no customer with this telephone number, then it adds the customer to the database.
-     * @param customerName customers name.
-     * @param customerSurname customers surname.
-     * @param phoneNumber customers telephone number.
+     * Then it checks if the customers telephone number starts with + and then contains only digits.
+     * After all these checks it tries to find customer by telephone number.
+     * If it is succeeds this method checks if the name and surname given matches the one in the database.
+     * If it does not match then the method throws an exception.
+     * if there is no customer with this telephone number, then the method adds the customer to the database.
+     *
+     * @param customerName       customers name.
+     * @param customerSurname    customers surname.
+     * @param phoneNumber        customers telephone number.
      * @param customerRepository customer repository.
      * @throws InvalidCustomerDetailsException thrown when  some detail is invalid.
      */
     public static void checkCustomer(String customerName, String customerSurname,
-                                        String phoneNumber, CustomerRepository customerRepository) throws InvalidCustomerDetailsException {
+                                     String phoneNumber, CustomerRepository customerRepository) throws InvalidCustomerDetailsException {
 
         if (!customerName.matches("[a-zA-Z].[a-zA-Z]*") ||
                 !customerSurname.matches("[a-zA-Z].[a-zA-Z]*")) {
@@ -61,16 +62,17 @@ public class CheckReservationInputs {
      * This method checks the reservation times
      * if the start time is not after the end time or
      * if there can be a reservation created at this time.
-     * @param court court object.
-     * @param startTime start of the reservation.
-     * @param endTime end of the reservation.
+     *
+     * @param court                 court object.
+     * @param startTime             start of the reservation.
+     * @param endTime               end of the reservation.
      * @param reservationRepository reservation repository.
      * @throws InvalidReservationDetailsException thrown when the times are invalid.
      */
     public static void checkReservation
-            (Court court, Timestamp startTime,
-             Timestamp endTime,
-             ReservationRepository reservationRepository) throws InvalidReservationDetailsException {
+    (Court court, Timestamp startTime,
+     Timestamp endTime,
+     ReservationRepository reservationRepository) throws InvalidReservationDetailsException {
         if (endTime.before(startTime)) {
             throw new InvalidReservationDetailsException("End time is before start time.");
         }

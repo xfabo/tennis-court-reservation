@@ -28,6 +28,7 @@ public class CourtController {
 
     /**
      * This is a PostMapping method to save court in the database.
+     *
      * @param court - court object created from API parameters.
      * @return Court object.
      */
@@ -38,6 +39,7 @@ public class CourtController {
 
     /**
      * This is a GetMapping method to get all courts in the database.
+     *
      * @return List of courts.
      */
     @GetMapping("/courts")

@@ -7,7 +7,7 @@ To run this program you need to install these applications.
   - Postman (https://www.postman.com/downloads/)
 
 # How to start
-After downloading the mentioned applications what you need to do is open an MySql Workbench and create a new connection
+After downloading the mentioned applications what you need to do is open an MySQL Workbench and create a new connection
 with details:
   - port =  "3306"
   - username =  "root" 

@@ -22,7 +22,7 @@ After doing this you have to log into the connection and create a new schema cal
 This is all you need to do for the MySQL part.
 
 # How to create a reservation
-After successfully connected to the MySQL database, you can now create the reservation.<br />
+After successfully connected to the MySQL database, you can now create a reservation.<br />
 What you need to do is: <br />
   - 1. Run the "TennisCourtReservationApplicationTests.java" that will create all the courts that the tennis club owns.
   - 2. Run "TennisCourtReservationApplication.java" to start the application.

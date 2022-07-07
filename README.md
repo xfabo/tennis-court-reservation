@@ -69,13 +69,13 @@ By this you will get all the courts with their court id and court surface availa
 # How to get all reservations from database by telephone number or court id.
 If you want to get all reservations created with certain number use:
   - Go to Postman and use Post.
-  - Use "http://localhost:8082/reservations/number/{telephone number}".
+  - Use "http://localhost:8082/reservations/number/{telephone_number}".
   - For example "http://localhost:8082/reservations/number/+420204567201".
   - Press Send.<br />
   
 If you want to get all reservations from database by court id:
   - Go to Postman and use Post.
-  - Use "http://localhost:8082/reservations/{court id}".
+  - Use "http://localhost:8082/reservations/{court_id}".
   - For example "http://localhost:8082/reservations/1".
   - Press Send.<br />
   

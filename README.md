@@ -7,13 +7,13 @@ To run this program you need to install these applications.
   - Postman (https://www.postman.com/downloads/)
 
 # How to start
-After downloading the mentioned applications what you need to do is open an MySQL Workbench and create a new connection
+After downloading the mentioned applications you need to open an MySQL Workbench and create a new connection
 with details:
   - port =  "3306"
   - username =  "root" 
   - password = "admin"
   
-If you used a different details you need to change the values in the "application.properties" file:
+If you used a different details than mentioned above, you need to change the values in the "application.properties" file:
 > spring.datasource.url=jdbc:mysql://localhost:3306/tennis_court<br />
 spring.datasource.username=root<br />
 spring.datasource.password=admin<br />

@@ -44,9 +44,9 @@ For example:
 > courtId: 1<br />
 customerName: John<br />
 customerSurname: Francis<br />
-telephoneNumber:+420 904 613 312<br />
+telephoneNumber: +420 904 613 312<br />
 startTime: 2022-5-6 04:30:00<br />
-endTime:2022-5-6 05:30:00 <br />
+endTime: 2022-5-6 05:30:00 <br />
 doubles: true<br />
 
 And this is all you need to do.
